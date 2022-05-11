@@ -1,0 +1,212 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+
+
+
+
+@media screen and (min-width: 700px) {
+    .header {
+        font-size: 30px;
+        font-family: 'Orbitron', sans-serif;
+        background-color: rgb(238, 235, 235);
+        height: 50px;
+        letter-spacing: 6px;
+        padding-left: 10px;
+        border-bottom: .3px solid black;
+        justify-self: flex-start;
+        justify-content: flex-start;
+        place-self: start;
+    }
+    .container{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 50px);
+    }
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border: 1px solid rgb(61, 61, 61);
+        background-color: rgb(255, 174, 0);
+        border-radius: 15px;
+        padding: 8px;
+    }
+    .wrapper h1{
+        font-size: 20px;
+        letter-spacing: 5px;
+        font-family: 'Orbitron', sans-serif;
+    }
+    .box{
+        display: flex;
+        border-top: 1px solid  rgb(253, 219, 95);
+        border-bottom: 1px solid  rgb(253, 219, 95);
+
+        padding: 10px 30px;
+        border-radius: 15px;
+    }
+    .bottom-box{
+        display: flex;
+        margin: 20px;
+    }
+
+    h1{
+        margin-top: 10px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border-top: 2px solid rgb(255, 162, 0);
+        border-bottom: 2px solid rgb(255, 162, 0);
+    }
+    h4{
+        margin: 10px 0;
+    }
+
+    input{
+        color: black;
+        border-radius: 8px;
+        padding: 10px;
+        border: none;
+        background-color:rgb(233, 220, 199);
+    }
+    .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 60px;
+    }
+    .button{
+        background-color: rgb(253, 219, 95);
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: .2px solid black;
+        box-shadow: 1px 2px 3px rgb(45, 45, 45);
+        transition: .2s ease-in;
+        cursor: pointer;
+    }
+    .button:hover{
+        background-color: rgb(253, 171, 31);
+        box-shadow: none;
+    }
+    .bottom-box{
+        border: .2px solid rgb(47, 47, 47);
+        border-radius: 10px;
+    }
+    select{
+        color: black;
+        background-color: rgb(245, 181, 43);
+        border: none;
+        width: 300px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .bottom-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    /* display plates */
+    .number-plate-inner-box{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    /* filtered plates */
+    .filter-plate-inner-box{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .bottom-wrapper{
+        /* overflow-y: scroll; */
+
+        margin: .1px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        width: 600px;
+        cursor: pointer;
+        text-align: center;
+        /* border-bottom: 2px solid rgb(61, 61, 61); */
+        /* background-color: rgb(255, 174, 0); */
+        /* border-radius: 15px; */
+        /* padding: 5px; */
+    }
+    
+/* filtered wrapper */
+    .filter-bottom-wrapper{
+        /* overflow-y: scroll; */
+
+        margin: .1px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        width: 600px;
+        min-height: 100px;
+        cursor: pointer;
+        text-align: center;
+        border-bottom: 1px solid rgb(214, 111, 14);
+        background-color: rgb(202, 141, 9);
+        border-radius: 15px;
+        padding: 5px;
+    }    
+    .error-handling-wrapper{
+        position: absolute;
+        border: 1px solid rgb(61, 61, 61);
+        background-color: rgb(255, 174, 0);
+        border-radius: 10px;
+        padding: 5px 8px;     
+        right: 0;
+        margin-right: 45%;
+        margin-bottom: 30%;
+    }
+    .error-handling{
+        color: red;
+        font-weight: bold;
+    }
+    .hide{
+        display: none;
+    }
+    .hidden{
+        display: none;
+    }
+    .list {
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px 15px;
+        background-color: rgb(216, 156, 2);
+    }
+    /* fitltered list */
+    .filterList {
+        margin: 10px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px 15px;
+        background-color: rgb(141, 139, 134);
+    }
+    h1.town-name{
+        color: gray;
+        font-size: 16px;
+        letter-spacing: 1px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    h1.town-select{
+        color: gray;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+}

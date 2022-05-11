@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Orbitron&display=swap"
+        rel="stylesheet">
+    <title>Registration Number</title>
+</head>
+
+<body>
+    <div class="header">
+        Registration App
+    </div>
+    <div class="container">
+        <div class="error-handling-wrapper hide">
+            <div class="error-handling "></div>
+        </div>
+        <div class="wrapper">
+            <h1>Registration</h1>
+            <div class="box">
+                <div>
+                    <h4>Registration Nr:</h4>
+                    <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
+                </div>
+                <div class="buttons">
+                    <div class="button add-number">Add Number</div>
+                    <!-- <div className="button">Reset</div> -->
+                </div>
+            </div>
+            <div class="bottom-box">
+                <h1 class="town-select">
+                    Towns
+                </h1>
+                <select type="text" name="name" id="regno">
+                    <option disabled hidden selected>Select Town</option>
+                    <option class="town" value="Cape Town">Cape Town</option>
+                    <option class="town" value="Stellenbosch">Stellenbosch</option>
+                    <option class="town" value="Bellville">Bellville</option>
+                    <option class="town" value="Kuils River">Kuils River</option>
+                    <option class="town" value="Wellington">Wellington</option>
+                    <option class="town" value="Malmesbury">Malmesbury</option>
+                    <option class="town" value="Worcester">Worcester</option>
+                    <option class="town" value="Ceres">Ceres</option>
+                    <option class="town" value="George">George</option>
+                </select>
+
+            </div>
+
+            <div class="bottom-container">
+                <h1 class="town-name">Cape Town</h1>
+                <div class="filter-bottom-wrapper">
+                    <div class="registration">
+                        <div class="number-plate">
+                            <span class="filter-plate-inner-box ">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="town-name">All Registration numbers</h1>
+                <div class="bottom-wrapper">
+                    <div class="registration ">
+                        <div class="number-plate">
+                            <span class="number-plate-inner-box">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./app.js" type="module"></script>
+</body>
+
+</html>
