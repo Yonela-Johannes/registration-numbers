@@ -36,12 +36,12 @@ const addRegNo = e => {
     )
         : !regPlateInputFormat && (
             errorHandlerWrapper.classList.remove("hide"),
-            errorHandler.innerHTML = 'enter correct fomat e.g: ca 12345')
+            errorHandler.innerHTML = 'enter correct fomat, e.g: CA 123 - 456"')
     number == "" ? (
         errorHandlerWrapper.classList.remove("hide"),
         errorHandler.innerHTML = 'enter registration number please'
     ) : !number.startsWith(platesAbrev) ? (errorHandlerWrapper.classList.remove("hide"),
-        errorHandler.innerHTML = 'add correct province registration format') : ''
+        errorHandler.innerHTML = "enter correct fomat, e.g: CY 123 - 456") : ''
 
     setTimeout(() => {
         errorHandlerWrapper.classList.add("hide")
