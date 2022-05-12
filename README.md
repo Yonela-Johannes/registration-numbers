@@ -2,6 +2,8 @@
 
 This is a Registrations number web app checks and validates the format of Western Cape <br />
 registrations numbes using *Regex*.<br />
+-*Code written in factory functions*<br />
+-Tests is written on the front-end using *Mocha and Chai*<br />
 -filter out numbers from a string <br/>
 -removes whitespace characters<br />
 -stores data to the local storage for retrieval<br />
