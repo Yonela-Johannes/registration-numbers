@@ -379,10 +379,12 @@
         padding: 5px;
     }    
     .error-handling-wrapper{
-        position: absolute;
+        position: fixed;
         padding: 5px 8px;
         top: 0;
-        margin-top: 58px;
+        right: 0;
+        margin-top: 100px;
+        background-color: rgb(206, 184, 158);
     }
 
     .fail{
