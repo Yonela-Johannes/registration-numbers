@@ -377,7 +377,8 @@
         border-bottom: 1px solid rgb(186, 186, 186);
         background-color: rgb(174, 0, 0);
         padding: 5px;
-    }    
+    } 
+       /*display on upper left corner  */
     .error-handling-wrapper{
         position: fixed;
         padding: 5px 8px;
