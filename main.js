@@ -2,7 +2,12 @@ const RegistrationNumbers = () => {
     let number = ''
     let selectedTownReg = []
 
-
+    // Western province registration abbreviations
+    const regisAbreviations = () => {
+        const indexes = ['ca', 'caa', 'wp', 'cy', 'cf', 'cn', 'cl', 'ck', 'cw', 'ct', 'caw', 'cf', 'cj']
+        return indexes.map(el => el.toUpperCase())
+    }
+    // loop add, and store 
     const storedRegis = (numberPlate, array) => {
         numberPlate.innerHTML = ""
         array.forEach(element =>
@@ -11,27 +16,33 @@ const RegistrationNumbers = () => {
             `
         )
     }
-
+    // Set/Get/Validate number
     const setRegNumber = regNo => number = regNo.toUpperCase().trim()
     const getRegNumber = () => number
+    // Test Input string using Regex
     const validateRegistrationNr = number => {
-        const regex = /\b[a-zA-Z]{1,2}(\s|\-)?\d{2,3}((\-|\s)?\d{2,4})?\b/
+        const regex = /\b[a-zA-Z]{1,2}(\s|\-)\d{2,3}((\-|\s)?\d{2,4})?\b/
         return regex.test(number)
     }
-
-    const numberCodes = array => {
-        let introArray = []
+    // Check if new number exist of not
+    const checkIfRegExist = (list, number) => {
+        let result = list.find(regno => regno == number.toUpperCase()) ? true : false
+        return result
+    }
+    // check if input starts with correct letters
+    const checkReg = array => {
+        let introArray = false
         for (let i = 0; i < array.length; i++) {
-            introArray.push(array[i])
+            if (getRegNumber().startsWith(array[i])) introArray = true
         }
         return introArray
     }
-
+    // Get registration by town names
     const setTownReg = (string, array) => {
         selectedTownReg = array.filter(arr => arr.startsWith(string))
     }
     const getTownReg = () => selectedTownReg
-
+    // looping data
     const filterTowns = (reg, array) => {
         reg.innerHTML = []
         array.forEach(elem =>
@@ -39,10 +50,12 @@ const RegistrationNumbers = () => {
         )
     }
     return {
+        regisAbreviations,
         setRegNumber,
         getRegNumber,
+        checkReg,
+        checkIfRegExist,
         storedRegis,
-        numberCodes,
         setTownReg,
         getTownReg,
         filterTowns,

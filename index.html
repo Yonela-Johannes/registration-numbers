@@ -10,29 +10,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Orbitron&display=swap"
         rel="stylesheet">
-    <title>Registration Number</title>
+    <title>Registration Numbers</title>
+    <meta name="decription"
+        content="A codeX curruriculum challenge check and let applicant learn more about the localStorage, filtering data, finding data, refactoring functions and the usage if Regex." />
 </head>
 
 <body>
     <div class="header">
-        Registration App
+        <!-- Header and Logo -->
+        <span class="reg">Registration</span><span class="app">App</span>
     </div>
+    <!-- main container -->
     <div class="container">
         <div class="error-handling-wrapper hide">
             <div class="error-handling "></div>
         </div>
+        <!-- Main content wrapper -->
         <div class="wrapper">
-            <h1>Registration</h1>
+            <div class="head">
+                <h1 class="header-title">Registration</h1>
+            </div>
             <div class="box">
-                <div>
-                    <h4>Registration Nr:</h4>
+                <h4 class="title">Registration:</h4>
+                <div class="input-container">
                     <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
                 </div>
                 <div class="buttons">
-                    <div class="button add-number">Add Number</div>
-                    <!-- <div className="button">Reset</div> -->
+                    <div class="button add-number">Enter</div>
                 </div>
             </div>
+            <!-- town list selection -->
             <div class="bottom-box">
                 <h1 class="town-select">
                     Towns
@@ -49,11 +56,10 @@
                     <option class="town" value="Ceres">Ceres</option>
                     <option class="town" value="George">George</option>
                 </select>
-
             </div>
-
+            <!-- Display town section -->
             <div class="bottom-container">
-                <h1 class="town-name">Cape Town</h1>
+                <h1 class="town-name"></h1>
                 <div class="filter-bottom-wrapper">
                     <div class="registration">
                         <div class="number-plate">
@@ -62,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="town-name">All Registration numbers</h1>
+                <h1 class="town-name">Registration numbers</h1>
                 <div class="bottom-wrapper">
                     <div class="registration ">
                         <div class="number-plate">
