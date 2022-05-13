@@ -41,14 +41,13 @@ const RegistrationNumbers = () => {
     const setTownReg = (string, array) => {
         selectedTownReg = array.filter(arr => arr.startsWith(string))
     }
-    const getTownReg = () => selectedTownReg
-    // looping data
-    const filterTowns = (reg, array) => {
-        reg.innerHTML = []
-        array.forEach(elem =>
-            reg.innerHTML += `<div class="filterList">${elem}</div>`
-        )
+
+    const setByTown = (string, array) => {
+        selectedTownReg = array.filter(arr => arr.startsWith(string.toUpperCase()))
     }
+
+    const getTownReg = () => selectedTownReg
+
     return {
         regisAbreviations,
         setRegNumber,
@@ -58,8 +57,8 @@ const RegistrationNumbers = () => {
         storedRegis,
         setTownReg,
         getTownReg,
-        filterTowns,
         validateRegistrationNr,
+        setByTown
     }
 }
 

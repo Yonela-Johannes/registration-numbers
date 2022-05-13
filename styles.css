@@ -140,14 +140,6 @@
         justify-content: center;
         margin: 15px 0;
     }
-    /* display plates */
-    .number-plate-inner-box{
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 15px;
-        font-weight: normal;
-    }
-
     /* filtered plates */
     .filter-plate-inner-box{
         display: flex;
@@ -155,15 +147,7 @@
         font-size: 15px;
         font-weight: normal;
     }
-    .bottom-wrapper{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        width: 100%;
-        background-color: rgb(184, 184, 184);
-        text-align: center;
-    }
+
     .registration{
         width: 100%;
     }
@@ -335,14 +319,6 @@
         justify-content: center;
         margin: 15px 0;
     }
-    /* display plates */
-    .number-plate-inner-box{
-        display: flex;
-        flex-wrap: wrap;
-        font-size: 15px;
-        font-weight: bold;
-    }
-    
     /* filtered plates */
     .filter-plate-inner-box{
         display: flex;
@@ -367,15 +343,15 @@
         margin: .1px 0;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: start;
+        align-items: center;
+        justify-content: center;
         width: 600px;
         min-height: 100px;
         cursor: pointer;
         text-align: center;
         border-top: 1px solid rgb(186, 186, 186);
         border-bottom: 1px solid rgb(186, 186, 186);
-        background-color: rgb(174, 0, 0);
+        background-color: rgba(192, 144, 104, 0.932);
         padding: 5px;
     } 
        /*display on upper left corner  */
