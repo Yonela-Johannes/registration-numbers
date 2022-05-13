@@ -9,6 +9,7 @@ const errorHandler = document.querySelector('.error-handling')
 const errorHandlerWrapper = document.querySelector('.error-handling-wrapper')
 const regInput = document.querySelector('.reg-input')
 const addNumber = document.querySelector('.add-number')
+const resetRegNumbers = document.querySelector('.reset-numbers')
 // end of selecting dom elements
 // getting localstorage and setting if empty
 let numbers = JSON.parse(localStorage.getItem('regNumbers')) ? JSON.parse(localStorage.getItem('regNumbers')) : localStorage.setItem("regNumbers", JSON.stringify([]))
@@ -79,12 +80,7 @@ const addRegNo = (e) => {
                     errorHandler.innerHTML = 'Enter correct town registration format, e.g: ca 123-456 or CF 123')
     // end of error dom handlers
     // Time out for poppup messages
-    setTimeout(() => {
-        // clear handler from dom
-        errorHandler.classList.remove('fail'),
-            errorHandler.classList.remove('success'),
-            errorHandlerWrapper.classList.add("hide")
-    }, 3000)
+    registrationNumbers.resetErrorHandlers(errorHandler, errorHandlerWrapper)
 }
 // listening for a click even on the dom
 addNumber.addEventListener('click', addRegNo)
@@ -106,3 +102,16 @@ const selectTown = () => {
 }
 // listening for a change event on the dom
 towns.addEventListener('change', selectTown)
+// listening for a change event on the dom
+
+const clearRegNumbers = () => {
+    console.log(oldRegNum)
+    !!oldRegNum && (errorHandlerWrapper.classList.remove("hide"),
+        errorHandler.classList.add('fail'),
+        errorHandler.innerHTML = 'Registration numbers are already cleared')
+    localStorage.clear('regNumbers')
+
+    registrationNumbers.resetErrorHandlers(errorHandler, errorHandlerWrapper)
+}
+
+resetRegNumbers.addEventListener('click', clearRegNumbers)

@@ -48,6 +48,15 @@ const RegistrationNumbers = () => {
 
     const getTownReg = () => selectedTownReg
 
+    const resetErrorHandlers = (errorHandler,errorHandlerWrapper) => {
+        // Time out for poppup messages
+        setTimeout(() => {
+            // clear handler from dom
+            errorHandler.classList.remove('fail'),
+                errorHandler.classList.remove('success'),
+                errorHandlerWrapper.classList.add("hide")
+        }, 3000)
+    }
     return {
         regisAbreviations,
         setRegNumber,
@@ -58,7 +67,8 @@ const RegistrationNumbers = () => {
         setTownReg,
         getTownReg,
         validateRegistrationNr,
-        setByTown
+        setByTown,
+        resetErrorHandlers
     }
 }
 

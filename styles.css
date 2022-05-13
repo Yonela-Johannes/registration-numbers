@@ -329,11 +329,15 @@
     .bottom-wrapper{
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-evenly;
         cursor: pointer;
+        margin-top: 10px;
         width: 100%;
-        background-color: rgb(184, 184, 184);
         text-align: center;
+    }
+    .reset-numbers{
+        background-color: rgb(175, 175, 175);
+        border: .2px solid black;
     }
     .registration{
         width: 500px;
