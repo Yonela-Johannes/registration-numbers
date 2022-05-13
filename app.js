@@ -91,7 +91,7 @@ const selectTown = () => {
     const selectedTown = towns.options[towns.selectedIndex].value
     townName.innerHTML = selectedTown
     // Check if Registration corresponds with town
-    // get/filter town plates by  selected town name
+    // get/filter town plates by  selected town ` name
     selectedTown == "Cape Town" && (registrationNumbers.setTownReg("CA", oldRegNum), registrationNumbers.filterTowns(filteredNumberPlate, registrationNumbers.getTownReg()))
     selectedTown == "Stellenbosch" && (registrationNumbers.setTownReg("CL", oldRegNum), registrationNumbers.filterTowns(filteredNumberPlate, registrationNumbers.getTownReg()))
     selectedTown == "Bellville" && (registrationNumbers.setTownReg("CY", oldRegNum), registrationNumbers.filterTowns(filteredNumberPlate, registrationNumbers.getTownReg()))
