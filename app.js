@@ -105,13 +105,12 @@ towns.addEventListener('change', selectTown)
 // listening for a change event on the dom
 
 const clearRegNumbers = () => {
-    console.log(oldRegNum)
     !!oldRegNum && (errorHandlerWrapper.classList.remove("hide"),
         errorHandler.classList.add('fail'),
         errorHandler.innerHTML = 'Registration numbers are already cleared')
     localStorage.clear('regNumbers')
-
     registrationNumbers.resetErrorHandlers(errorHandler, errorHandlerWrapper)
+    location.reload()
 }
 
 resetRegNumbers.addEventListener('click', clearRegNumbers)
