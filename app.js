@@ -23,6 +23,7 @@ const addRegNo = (e) => {
     e.preventDefault()
     // reseting dropdown
     towns.selectedIndex = 0
+    townName.innerHTML = "No Town Selected"
     // init data
     let number = regInput.value
     // passing input
@@ -92,13 +93,13 @@ const selectTown = () => {
     townName.innerHTML = displayName
     // filter towns
     registrationNumbers.setByTown(town, oldRegNum)
-    !oldRegNum ?
-        filteredNumberPlate.innerHTML = `There is no registration numbers for ${displayName}` :
+    registrationNumbers.getTownReg().length == 0 ? filteredNumberPlate.innerHTML = `There is no registration numbers for ${displayName}` :
         registrationNumbers.storedRegis(filteredNumberPlate, registrationNumbers.getTownReg())
     // set time out for error handlers
-    setTimeout(() => {
-        filteredNumberPlate.innerHTML = ""
-    }, 3700)
+    registrationNumbers.getTownReg().length == 0 &&
+        setTimeout(() => {
+            filteredNumberPlate.innerHTML = ""
+        }, 3700)
 }
 // listening for a change event on the dom
 towns.addEventListener('change', selectTown)
