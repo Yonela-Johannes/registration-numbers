@@ -92,7 +92,7 @@ const selectTown = () => {
     townName.innerHTML = displayName
     // filter towns
     registrationNumbers.setByTown(town, oldRegNum)
-    !!registrationNumbers.getTownReg() ?
+    !oldRegNum ?
         filteredNumberPlate.innerHTML = `There is no registration numbers for ${displayName}` :
         registrationNumbers.storedRegis(filteredNumberPlate, registrationNumbers.getTownReg())
     // set time out for error handlers
