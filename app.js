@@ -10,11 +10,10 @@ const errorHandlerWrapper = document.querySelector('.error-handling-wrapper')
 const regInput = document.querySelector('.reg-input')
 const addNumber = document.querySelector('.add-number')
 const resetRegNumbers = document.querySelector('.reset-numbers')
-
+const showNumbers = document.querySelector('.show-numbers')
+// get/set local storage
 JSON.parse(localStorage.getItem('regNumbers')) == null && localStorage.setItem("regNumbers", JSON.stringify([]))
-
 let numbers = JSON.parse(localStorage.getItem('regNumbers'))
-
 townName.innerHTML = "No Town Selected"
 // loop add, and store 
 const storedRegis = (numberPlate, array) => {
@@ -25,7 +24,8 @@ const storedRegis = (numberPlate, array) => {
             `
     )
 }
-
+// display all registration numbers
+storedRegis(filteredNumberPlate, numbers)
 const resetErrorHandlers = (errorHandler, errorHandlerWrapper) => {
     // Time out for poppup messages
     setTimeout(() => {
@@ -33,56 +33,67 @@ const resetErrorHandlers = (errorHandler, errorHandlerWrapper) => {
         errorHandler.classList.remove('fail'),
             errorHandler.classList.remove('success'),
             errorHandlerWrapper.classList.add("hide")
-    }, 3000)
+        location.reload()
+    }, 2600)
 }
 
 // init app
 const addRegNo = (e) => {
-    // cancel event
-    // e.preventDefault()
     towns.selectedIndex = 0
     townName.innerHTML = "No Town Selected"
     let number = regInput.value
     regNumbers.setNumber(number)
-    JSON.parse(localStorage.getItem("regNumbers")),
-
-        !regNumbers.checkRegExist() && (
-            regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg() && (
-                regNumbers.setNumber(number),
-                errorHandlerWrapper.classList.remove("hide"),
-                errorHandler.classList.add('success'),
-                errorHandler.innerHTML = 'Number added successfully',
-                regNumbers.setRegNumbers(numbers),
-                regNumbers.getNumbers(),
-                localStorage.setItem("regNumbers", JSON.stringify(numbers)),
-                storedRegis(filteredNumberPlate, numbers),
-                regInput.value = ''
-            ))
-
-    regNumbers.checkRegExist() ? (
-        errorHandlerWrapper.classList.remove("hide"),
-        errorHandler.classList.add('fail'),
-        errorHandler.innerHTML = 'Number exist in storage',
+    // check if number is entered
+    // valid if number entered is correct
+    // check if it does exist in local storage
+    if (regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg()) {
+        // if it does exist add number to storage
+        JSON.parse(localStorage.getItem("regNumbers"))
+        if (!regNumbers.checkRegExist()) {
+            regNumbers.setNumber(number)
+            errorHandlerWrapper.classList.remove("hide")
+            errorHandler.classList.add('success')
+            regNumbers.setRegNumbers(numbers)
+            regNumbers.getNumbers()
+            localStorage.setItem("regNumbers", JSON.stringify(numbers))
+            storedRegis(filteredNumberPlate, numbers)
+            errorHandler.innerHTML = 'Number added successfully'
+            regInput.value = ''
+        } else {
+            // If number in storage response
+            errorHandlerWrapper.classList.remove("hide")
+            errorHandler.classList.add('fail')
+            errorHandler.innerHTML = 'Number exist in storage'
+            regInput.value = ''
+        }
+    }
+    console.log(!!regNumbers.checkPrefixAndAffix())
+    // if no input is entered
+    if (!regNumbers.getRegNumber()) {
+        towns.selectedIndex = 0
+        errorHandlerWrapper.classList.remove("hide")
+        errorHandler.classList.add('fail')
+        errorHandler.innerHTML = 'Enter registration number'
         regInput.value = ''
-    ) :
-
-        !regNumbers.getRegNumber() && (
-            // towns.selectedIndex = 0,
-            errorHandlerWrapper.classList.remove("hide"),
-            errorHandler.classList.add('fail'),
-            errorHandler.innerHTML = 'Enter registration please')
-
-    !!regNumbers.validNo() && (
-        errorHandlerWrapper.classList.remove("hide"),
-        errorHandler.classList.add('fail'),
-        errorHandler.innerHTML = 'Enter correct registration, e.g: ca 123-456 or CT 123')
-
-    !!regNumbers.checkPrefixAndAffix() && (errorHandlerWrapper.classList.remove("hide"),
-        errorHandler.classList.add('fail'),
-        errorHandler.innerHTML = 'Enter correct registration number format, e.g: ca 123-456 or CF 123')
+    }
+    // if prefix or affix is not of the Western Province
+    if (!!regNumbers.checkPrefixAndAffix()) {
+        errorHandlerWrapper.classList.remove("hide")
+        errorHandler.classList.add('fail')
+        errorHandler.innerHTML = 'Registration should start with valid Western Province registration prefix'
+        regInput.value = ''
+    }
+    // correct registration format
+    else if (!regNumbers.validNo()) {
+        errorHandlerWrapper.classList.remove("hide")
+        errorHandler.classList.add('fail')
+        errorHandler.innerHTML = 'Enter correct registration, e.g: CA 123-456 or CT 123'
+    }
+    // setTimeout for popup messages
     resetErrorHandlers(errorHandler, errorHandlerWrapper)
     // filteredNumberPlate.innerHTML = ""
 }
+
 
 // listening for a click even on the dom
 addNumber.addEventListener('click', addRegNo)
@@ -107,14 +118,22 @@ const selectTown = () => {
 // listening for a change event on the dom
 towns.addEventListener('change', selectTown)
 // listening for a change event on the dom
-
+// clear local storage
 const clearRegNumbers = () => {
-    !!numbers && (errorHandlerWrapper.classList.remove("hide"),
+    !!regNumbers.getNumbers() && (errorHandlerWrapper.classList.remove("hide"),
         errorHandler.classList.add('fail'),
         errorHandler.innerHTML = 'Registration numbers are already cleared')
     localStorage.clear('regNumbers')
     resetErrorHandlers(errorHandler, errorHandlerWrapper)
-    location.reload()
 }
 
 resetRegNumbers.addEventListener('click', clearRegNumbers)
+
+// show all towns
+const showAll = () => {
+    !!regNumbers.getNumbers() ? townName.innerHTML = "All Towns" : townName.innerHTML = "Registrations empty"
+    towns.selectedIndex = 0
+    storedRegis(filteredNumberPlate, numbers)
+}
+
+showNumbers.addEventListener('click', showAll)

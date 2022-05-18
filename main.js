@@ -21,7 +21,7 @@ const RegistrationNumbers = () => {
     const checkRegExist = () => existNo
 
     const checkPrefixAndAffix = () => regisAbreviations().includes(getRegNumber())
-
+    
     const checkReg = () => {
         let introArray = false
         for (let i = 0; i < regisAbreviations().length; i++) {
