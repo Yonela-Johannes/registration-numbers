@@ -46,7 +46,6 @@ const addRegNo = (e) => {
     regNumbers.setNumber(number)
     JSON.parse(localStorage.getItem("regNumbers")),
 
-
         !regNumbers.checkRegExist() && (
             regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg() && (
                 regNumbers.setNumber(number),
@@ -83,8 +82,9 @@ const addRegNo = (e) => {
         errorHandler.classList.add('fail'),
         errorHandler.innerHTML = 'Enter correct registration number format, e.g: ca 123-456 or CF 123')
     resetErrorHandlers(errorHandler, errorHandlerWrapper)
-    filteredNumberPlate.innerHTML = ""
+    // filteredNumberPlate.innerHTML = ""
 }
+
 // listening for a click even on the dom
 addNumber.addEventListener('click', addRegNo)
 // init function
