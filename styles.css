@@ -239,6 +239,7 @@
         letter-spacing: 5px;
         font-family: 'Orbitron', sans-serif;
     }
+
     .title{
         margin: 0 15px;
     }
@@ -296,8 +297,13 @@
     }
     .button:hover{
         background-color: transparent;
-        border-color: black;
+        border-color: rgb(108, 108, 108);
         box-shadow: none;
+    }
+    .active{
+        color: rgb(0, 0, 0);
+        border-color: black;
+       background-color: rgb(216, 156, 2);
     }
     .bottom-box{
         display: flex;
