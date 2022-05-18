@@ -53,27 +53,26 @@ const addRegNo = (e) => {
                 errorHandler.classList.add('success'),
                 errorHandler.innerHTML = 'Number added successfully',
                 regNumbers.setRegNumbers(numbers),
-                console.log(regNumbers.getNumbers()),
+                regNumbers.getNumbers(),
                 localStorage.setItem("regNumbers", JSON.stringify(numbers)),
                 storedRegis(filteredNumberPlate, numbers),
                 regInput.value = ''
             ))
 
-    regNumbers.checkRegExist() && (
+    regNumbers.checkRegExist() ? (
         errorHandlerWrapper.classList.remove("hide"),
         errorHandler.classList.add('fail'),
         errorHandler.innerHTML = 'Number exist in storage',
         regInput.value = ''
-    )
+    ) :
 
+        !regNumbers.getRegNumber() && (
+            // towns.selectedIndex = 0,
+            errorHandlerWrapper.classList.remove("hide"),
+            errorHandler.classList.add('fail'),
+            errorHandler.innerHTML = 'Enter registration please')
 
-    regNumbers.getRegNumber() == "" && (
-        towns.selectedIndex = 0,
-        errorHandlerWrapper.classList.remove("hide"),
-        errorHandler.classList.add('fail'),
-        errorHandler.innerHTML = 'Enter registration please')
-
-    !regNumbers.validNo() && (
+    !!regNumbers.validNo() && (
         errorHandlerWrapper.classList.remove("hide"),
         errorHandler.classList.add('fail'),
         errorHandler.innerHTML = 'Enter correct registration, e.g: ca 123-456 or CT 123')
