@@ -10,11 +10,14 @@ const errorHandlerWrapper = document.querySelector('.error-handling-wrapper')
 const regInput = document.querySelector('.reg-input')
 const addNumber = document.querySelector('.add-number')
 const resetRegNumbers = document.querySelector('.reset-numbers')
+const counter = document.querySelector(".counter")
 // get/set local storage
 JSON.parse(localStorage.getItem('regNumbers')) == null && localStorage.setItem("regNumbers", JSON.stringify([]))
-let numbers = JSON.parse(localStorage.getItem('regNumbers'))
+let numbers = JSON.parse(localStorage.getItem('regNumbers')).reverse()
 // townName.innerHTML = "No Town Selected"`
 // loop add, and store 
+regNumbers.storedLocList(numbers)
+counter.innerHTML = numbers.length
 const storedRegis = (numberPlate, array) => {
     numberPlate.innerHTML = ""
     array.forEach(element =>
@@ -44,46 +47,54 @@ const addRegNo = (e) => {
     // check if number is entered
     // valid if number entered is correct
     // check if it does exist in local storage
-    if (regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg()) {
-        // if it does exist add number to storage
-        if (numbers.includes(regNumbers.getRegNumber()) == false) {
-            regNumbers.setNumber(number)
-            errorHandlerWrapper.classList.remove("hide")
-            errorHandler.classList.add('success')
-            regNumbers.setRegNumbers(numbers)
-            regNumbers.getNumbers()
-            localStorage.setItem("regNumbers", JSON.stringify(numbers))
-            storedRegis(filteredNumberPlate, numbers)
-            errorHandler.innerHTML = 'Number added successfully'
-            regInput.value = ''
-        } else {
-            // If number in storage response
+    if (!regNumbers.limit()) {
+        if (regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg()) {
+            // if it does exist add number to storage
+            if (numbers.includes(regNumbers.getRegNumber()) == false) {
+                regNumbers.setNumber(number)
+                errorHandlerWrapper.classList.remove("hide")
+                errorHandler.classList.add('success')
+                regNumbers.setRegNumbers(numbers)
+                regNumbers.getNumbers()
+                localStorage.setItem("regNumbers", JSON.stringify(numbers))
+                storedRegis(filteredNumberPlate, numbers)
+                errorHandler.innerHTML = 'Number added successfully'
+                regInput.value = ''
+                counter.innerHTML = numbers.length
+            } else {
+                // If number in storage response
+                errorHandlerWrapper.classList.remove("hide")
+                errorHandler.classList.add('fail')
+                errorHandler.innerHTML = 'Number exist in storage'
+                regInput.value = ''
+            }
+        }
+
+        if (!regNumbers.getRegNumber()) {
+            towns.selectedIndex = 0
             errorHandlerWrapper.classList.remove("hide")
             errorHandler.classList.add('fail')
-            errorHandler.innerHTML = 'Number exist in storage'
+            errorHandler.innerHTML = 'Enter registration number'
             regInput.value = ''
         }
-    }
-
-    if (!regNumbers.getRegNumber()) {
-        towns.selectedIndex = 0
+        // if prefix or affix is not of the Western Province
+        else if (regNumbers.checkPrefixAndAffix()) {
+            errorHandlerWrapper.classList.remove("hide")
+            errorHandler.classList.add('fail')
+            errorHandler.innerHTML = 'Registration should start with valid Western Province registration prefix'
+            regInput.value = ''
+        }
+        // correct registration format
+        else if (!regNumbers.validNo()) {
+            errorHandlerWrapper.classList.remove("hide")
+            errorHandler.classList.add('fail')
+            errorHandler.innerHTML = 'Enter correct registration, e.g: CA 123-456 or CT 123'
+        }
+    } else {
         errorHandlerWrapper.classList.remove("hide")
         errorHandler.classList.add('fail')
-        errorHandler.innerHTML = 'Enter registration number'
+        errorHandler.innerHTML = 'Only take up to a limit of 20 registrations'
         regInput.value = ''
-    }
-    // if prefix or affix is not of the Western Province
-    else if (regNumbers.checkPrefixAndAffix()) {
-        errorHandlerWrapper.classList.remove("hide")
-        errorHandler.classList.add('fail')
-        errorHandler.innerHTML = 'Registration should start with valid Western Province registration prefix'
-        regInput.value = ''
-    }
-    // correct registration format
-    else if (!regNumbers.validNo()) {
-        errorHandlerWrapper.classList.remove("hide")
-        errorHandler.classList.add('fail')
-        errorHandler.innerHTML = 'Enter correct registration, e.g: CA 123-456 or CT 123'
     }
     // setTimeout for popup messages
     resetErrorHandlers(errorHandler, errorHandlerWrapper)
@@ -101,6 +112,7 @@ const selectTown = () => {
     townName.innerHTML = displayName
     // filter towns
     regNumbers.setByTown(town, numbers)
+    console.log(counter.innerHTML = regNumbers.getTownReg().length)
     regNumbers.getTownReg().length == 0 ? filteredNumberPlate.innerHTML = `There is no registration numbers for ${displayName}` :
         storedRegis(filteredNumberPlate, regNumbers.getTownReg())
     // set time out for error handlers
@@ -116,11 +128,13 @@ towns.addEventListener('change', selectTown)
 // listening for a change event on the dom
 // clear local storage
 const clearRegNumbers = () => {
-    !!regNumbers.getNumbers() && (errorHandlerWrapper.classList.remove("hide"),
+    !!regNumbers.getNumbers() && (errorHandlerWrapper.classList.remove("hide")),
         errorHandler.classList.add('fail'),
-        errorHandler.innerHTML = 'Registration numbers are already cleared')
-    localStorage.clear('regNumbers')
-    resetErrorHandlers(errorHandler, errorHandlerWrapper)
+        regNumbers.getNumbers().length == 0 ? errorHandler.innerHTML = 'Registration numbers are already cleared' : localStorage.clear('regNumbers')
+    setTimeout(() => {
+        errorHandler.innerHTML = '',
+            errorHandlerWrapper.classList.add("hide")
+    }, 2000)
 }
 
 resetRegNumbers.addEventListener('click', clearRegNumbers)

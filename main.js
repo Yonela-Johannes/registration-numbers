@@ -8,6 +8,11 @@ const RegistrationNumbers = () => {
         const indexes = ['ca', 'caa', 'wp', 'cy', 'cf', 'cn', 'cl', 'ck', 'cw', 'ct', 'caw', 'cf', 'cj']
         return indexes.map(el => el.toUpperCase())
     }
+    const limit = (list) => list < 20
+
+    const storedLocList = list => newList = list
+    const getStoredLocList = () => newList
+
     const setNumber = (reg) => {
         number = reg.toUpperCase().trim()
     }
@@ -21,7 +26,7 @@ const RegistrationNumbers = () => {
     const checkRegExist = () => existNo
 
     const checkPrefixAndAffix = () => regisAbreviations().includes(getRegNumber())
-    
+
     const checkReg = () => {
         let introArray = false
         for (let i = 0; i < regisAbreviations().length; i++) {
@@ -41,7 +46,10 @@ const RegistrationNumbers = () => {
     const getTownReg = () => selectedTownReg
 
     return {
+        limit,
+        storedLocList,
         setNumber,
+        getStoredLocList,
         regisAbreviations,
         getRegNumber,
         validNo,

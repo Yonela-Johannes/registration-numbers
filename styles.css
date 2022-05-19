@@ -300,6 +300,10 @@
         border-color: rgb(108, 108, 108);
         box-shadow: none;
     }
+    .total {
+        font-weight: bold;
+        color: gray;
+    }
     .active{
         color: rgb(0, 0, 0);
         border-color: black;
@@ -415,6 +419,16 @@
         letter-spacing: 2px;
         text-align: center;
         text-justify: auto;
+    }
+    .footer{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .limit{
+        font-size: 13px;
+        font-weight: bold;
+        color: grey;
     }
 
 }
