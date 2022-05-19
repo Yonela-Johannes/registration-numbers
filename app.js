@@ -134,6 +134,7 @@ const clearRegNumbers = () => {
     setTimeout(() => {
         errorHandler.innerHTML = '',
             errorHandlerWrapper.classList.add("hide")
+        location.reload()
     }, 2000)
 }
 
