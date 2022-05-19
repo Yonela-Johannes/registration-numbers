@@ -35,7 +35,7 @@ const RegistrationNumbers = () => {
     }
 
     const setByTown = (string, array) => {
-        selectedTownReg = array.filter(arr => arr.startsWith(string.toUpperCase()))
+        selectedTownReg = string !== "refresh" ? array.filter(arr => arr.startsWith(string.toUpperCase())) : array
     }
 
     const getTownReg = () => selectedTownReg

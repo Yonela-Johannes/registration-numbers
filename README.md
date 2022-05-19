@@ -6,7 +6,7 @@ registrations numbes using *Regex*.<br />
 -Tests is written on the front-end using *Mocha and Chai*<br />
 -filter out numbers from a string <br/>
 -removes whitespace characters<br />
--stores data to the local storage for retrieval<br />
+-stores data to the local storage for retreival<br />
 -display data from the local storage<br />
 -filter out data need<br />
 -find information from a list<br />

@@ -10,11 +10,10 @@ const errorHandlerWrapper = document.querySelector('.error-handling-wrapper')
 const regInput = document.querySelector('.reg-input')
 const addNumber = document.querySelector('.add-number')
 const resetRegNumbers = document.querySelector('.reset-numbers')
-const showNumbers = document.querySelector('.show-numbers')
 // get/set local storage
 JSON.parse(localStorage.getItem('regNumbers')) == null && localStorage.setItem("regNumbers", JSON.stringify([]))
 let numbers = JSON.parse(localStorage.getItem('regNumbers'))
-townName.innerHTML = "No Town Selected"
+// townName.innerHTML = "No Town Selected"`
 // loop add, and store 
 const storedRegis = (numberPlate, array) => {
     numberPlate.innerHTML = ""
@@ -33,7 +32,6 @@ const resetErrorHandlers = (errorHandler, errorHandlerWrapper) => {
         errorHandler.classList.remove('fail'),
             errorHandler.classList.remove('success'),
             errorHandlerWrapper.classList.add("hide")
-        location.reload()
     }, 2600)
 }
 
@@ -48,8 +46,7 @@ const addRegNo = (e) => {
     // check if it does exist in local storage
     if (regNumbers.getRegNumber() && regNumbers.validNo() && regNumbers.checkReg()) {
         // if it does exist add number to storage
-        JSON.parse(localStorage.getItem("regNumbers"))
-        if (!regNumbers.checkRegExist()) {
+        if (numbers.includes(regNumbers.getRegNumber()) == false) {
             regNumbers.setNumber(number)
             errorHandlerWrapper.classList.remove("hide")
             errorHandler.classList.add('success')
@@ -67,8 +64,7 @@ const addRegNo = (e) => {
             regInput.value = ''
         }
     }
-    console.log(!!regNumbers.checkPrefixAndAffix())
-    // if no input is entered
+
     if (!regNumbers.getRegNumber()) {
         towns.selectedIndex = 0
         errorHandlerWrapper.classList.remove("hide")
@@ -77,7 +73,7 @@ const addRegNo = (e) => {
         regInput.value = ''
     }
     // if prefix or affix is not of the Western Province
-    if (!!regNumbers.checkPrefixAndAffix()) {
+    else if (regNumbers.checkPrefixAndAffix()) {
         errorHandlerWrapper.classList.remove("hide")
         errorHandler.classList.add('fail')
         errorHandler.innerHTML = 'Registration should start with valid Western Province registration prefix'
@@ -128,12 +124,3 @@ const clearRegNumbers = () => {
 }
 
 resetRegNumbers.addEventListener('click', clearRegNumbers)
-
-// show all towns
-const showAll = () => {
-    !!regNumbers.getNumbers() ? townName.innerHTML = "All Towns" : townName.innerHTML = "Registrations empty"
-    towns.selectedIndex = 0
-    storedRegis(filteredNumberPlate, numbers)
-}
-
-showNumbers.addEventListener('click', showAll)
