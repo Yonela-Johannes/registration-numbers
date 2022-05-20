@@ -2,8 +2,8 @@ const data = {
     registration: {
         header: "Registration(Handlebars)",
         title: "Registration",
-        placeholder: "Enter registration number",
-        title:  'Registration numbers',
+        placeholder: "Enter registration no",
+        townTitle:  'Registration Numbers',
         addBtn: 'Add',
         clearBtn: 'Clear',
         total: "Total Registrations: ",
