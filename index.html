@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styleshandlebars.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300&family=Orbitron&display=swap"
@@ -21,68 +22,139 @@
         <span class="reg">Registration</span><span class="app">App</span>
     </div>
     <!-- main container -->
-    <div class="container">
-        <div class="error-handling-wrapper hide">
-            <div class="error-handling "></div>
-        </div>
-        <!-- Main content wrapper -->
-        <div class="wrapper">
-            <div class="head">
-                <h1 class="header-title">Registration</h1>
+    <div class="main-container">
+        <div class="container">
+            <div class="error-handling-wrapper hide">
+                <div class="error-handling "></div>
             </div>
-            <div class="box">
-                <h4 class="title">Registration:</h4>
-                <div class="input-container">
-                    <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
+            <!-- Main content wrapper -->
+            <div class="wrapper">
+                <div class="head">
+                    <h1 class="header-title">Registration</h1>
                 </div>
-                <div class="buttons">
-                    <div class="button add-number">Enter</div>
+                <div class="box">
+                    <h4 class="title">Registration:</h4>
+                    <div class="input-container">
+                        <input class="reg-input" placeholder="Enter registation number" type="text" name="text" />
+                    </div>
+                    <div class="buttons">
+                        <div class="button add-number">Enter</div>
+                    </div>
                 </div>
-            </div>
-            <!-- town list selection -->
-            <div class="bottom-box">
-                <h1 class="town-select">
-                    Towns
-                </h1>
-                <select type="text" name="name" id="regno">
-                    <option disabled value="select town" selected>Select Town</option>
-                    <option class="town" value="ca">Cape Town</option>
-                    <option class="town" value="cl">Stellenbosch</option>
-                    <option class="town" value="cy">Bellville</option>
-                    <option class="town" value="cf">Kuils River</option>
-                    <option class="town" value="cn">Wellington</option>
-                    <option class="town" value="ck">Malmesbury</option>
-                    <option class="town" value="cw">Worcester</option>
-                    <option class="town" value="ct">Ceres</option>
-                    <option class="town" value="caw">George</option>
-                    <option value="refresh">Display All</option>
-                </select>
-            </div>
-            <!-- Display town section -->
-            <div class="bottom-container">
-                <h1 class="town-name">Registration numbers</h1>
-                <div class="filter-bottom-wrapper">
-                    <div class="registration">
-                        <div class="number-plate">
-                            <span class="filter-plate-inner-box">
-                            </span>
+                <!-- town list selection -->
+                <div class="bottom-box">
+                    <h1 class="town-select">
+                        Towns
+                    </h1>
+                    <select type="text" name="name" id="regno">
+                        <option disabled value="select town" selected>Select Town</option>
+                        <option class="town" value="ca">Cape Town</option>
+                        <option class="town" value="cl">Stellenbosch</option>
+                        <option class="town" value="cy">Bellville</option>
+                        <option class="town" value="cf">Kuils River</option>
+                        <option class="town" value="cn">Wellington</option>
+                        <option class="town" value="ck">Malmesbury</option>
+                        <option class="town" value="cw">Worcester</option>
+                        <option class="town" value="ct">Ceres</option>
+                        <option class="town" value="caw">George</option>
+                        <option value="refresh">Display All</option>
+                    </select>
+                </div>
+                <!-- Display town section -->
+                <div class="bottom-container">
+                    <h1 class="town-name">Registration numbers</h1>
+                    <div class="filter-bottom-wrapper">
+                        <div class="registration">
+                            <div class="number-plate">
+                                <span class="filter-plate-inner-box">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-wrapper">
+                        <h1 class="town-name display-name"></h1>
+                        <div class="buttons reset-button">
+                            <div class="button reset-numbers">Clear</div>
+                        </div>
+                        <div class="footer">
+                            <span class="total">Total registrations: <span class="counter"></span></span>
+                            <span class="limit">limit: 20</span>
                         </div>
                     </div>
                 </div>
-                <div class="bottom-wrapper">
-                    <h1 class="town-name display-name"></h1>
-                    <div class="buttons reset-button">
-                        <div class="button reset-numbers">Clear</div>
-                    </div>
-                    <div class="footer">
-                        <span class="total">Total registrations: <span class="counter"></span></span>
-                        <span class="limit">limit: 20</span>
-                    </div>
-                </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <div class="second-registration"></div>
+        <script src="./app.js" type="module"></script>
+        <script id="template" src="./template.js" type="text/x-handlebars-template">
+            <div class="container">
+                {{#data}}
+                    <div class="wrapper">
+                        <div class="head">
+                            <h1 class="header-title">
+                                {{this.registration.header}}
+                                
+                            </h1>
+                        </div>
+                    <div class="box">
+                        <h4 class="title">{{this.registration.title}}:</h4>
+                        <div class="input-container">
+                            <input class="reg-input" placeholder="{{this.registration.placeholder}}" type="text" name="text" />
+                        </div>
+                        <div class="buttons">
+                            <div class="button add-number">{{this.registration.addBtn}}</div>
+                        </div>
+                    </div>
+                <!-- town list selection -->
+                <div class="bottom-box">
+                    <h1 class="town-select">
+                        Towns
+                    </h1>
+                    <select type="text" name="name" id="regno">
+                        <option disabled value="select town" selected>Select Town</option>
+                        <option class="town" value="ca">{{this.towns.capetown}}</option>
+                        <option class="town" value="cl">{{this.towns.stellenbosch}}</option>
+                        <option class="town" value="cy">{{this.towns.bellville}}</option>
+                        <option class="town" value="cf">{{this.towns.kuilsriver}}</option>
+                        <option class="town" value="cn">{{this.towns.wellington}}</option>
+                        <option class="town" value="ck">{{this.towns.malmesbury}}</option>
+                        <option class="town" value="cw">{{this.towns.worcester}}</option>
+                        <option class="town" value="ct">{{this.towns.ceres}}</option>
+                        <option class="town" value="caw">{{this.towns.george}}</option>
+                        <option value="refresh">{{this.towns.refresh}}</option>
+                    </select>
+                    </div>
+                <!-- Display town section -->
+                <div class="bottom-container">
+                    <h1 class="town-name">{{this.registration.title}}</h1>
+                    <div class="filter-bottom-wrapper">
+                        <div class="registration">
+                            <div class="number-plate">
+                                <span class="filter-plate-inner-box">
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-wrapper">
+                        <h1 class="town-name display-name"></h1>
+                        <div class="buttons reset-button">
+                            <div class="button reset-numbers">{{this.registration.clearBtn}}</div>
+                        </div>
+                        <div class="footer">
+                            <span class="total">{{this.registrations.total}}<span class="counter"></span></span>
+                            <span class="limit">{{this.registrations.limit}}</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                    </div>
+                {{/data}}
+            </div>
+        </script>
     </div>
-    <script src="./app.js" type="module"></script>
+    <script src="./handlebarscontent.js" type="module"></script>
+    <script src="./middleware.js" type="module"></script>
 </body>
 
 </html>
