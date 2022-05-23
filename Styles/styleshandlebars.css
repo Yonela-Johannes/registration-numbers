@@ -152,7 +152,7 @@
         width: 100%;
     }
 
-    .error-handling-wrapper{
+    .handlebars-error-handling-wrapper{
         position: absolute;
         padding: 5px 8px;
         top: 0;
@@ -225,66 +225,68 @@
         justify-content: center;
         min-height: calc(100vh - 80px);
     }
-    .wrapper{
+    .handlebars-wrapper{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        border: 1px solid rgb(93, 93, 93);
+        border: 1px solid rgb(0, 0, 0);
         border-radius: 15px;
+        background-color: rgb(98, 98, 98);
     }
-    .wrapper h1{
+    .handlebars-wrapper h1{
         font-size: 20px;
         letter-spacing: 5px;
         font-family: 'Orbitron', sans-serif;
     }
 
-    .title{
-        margin: 0 15px;
+    .handlebars-title{
+        color: white;
+        margin: 0 1px;
     }
-    .box{
+    .handlebars-box{
         display: flex;
         flex-direction: row;
         margin: 30px 0;
-        border-radius: 15px;
+        border-radius: 20px;
         justify-content: center;
         align-items: center;
-        width: 200px;
-        background-color: rgb(206, 184, 158);
+        width: 170px;
+        background-color: rgb(236, 211, 164);
     }
     .bottom-box{
         display: flex;
         flex-direction: row;
         margin: 10x 0;
     }
-    .head{
-        background: rgb(228, 228, 228);
+    .handlebars-head{
+        background: rgb(254, 225, 182);
         width: 100%;
         border-radius: 15px 10px 0 0;
-        padding: 5px;
     }
     h1{
         color: gray;
         padding: 5px;
     }
-    h1.header-title{
-        color: gray;
-        margin-top: 10px;
-        padding: 5px;
-        border-bottom: 2px solid rgb(176, 176, 176);  
+    h1.handlebars-header-title{
+        color: rgb(87, 87, 87);
+        margin: 10px;
     }
     h4{
         margin: 10px 0;
     }
-
-    input{
+    input.handlebars-reg-input::placeholder{
+        color: rgb(96, 96, 96);
+        font-weight: bold;
+    }
+    input.handlebars-reg-input{
         color: black;
         border-radius: 15px;
-        border: 1px solid gray;
+        border: 1px solid rgb(36, 36, 36);
         padding: 7px;
         margin-right: 15px;
-        background-color:rgb(255, 255, 255);
+        background-color: transparent;
     }
      .button{
         padding: 5px 10px;
@@ -309,18 +311,18 @@
         border-color: black;
        background-color: rgb(216, 156, 2);
     }
-    .bottom-box{
+    .handlebars-bottom-box{
         display: flex;
         align-items: center;
-        border: .2px solid rgb(151, 151, 151);
+        border: .2px solid rgb(205, 203, 203);
         border-radius: 10px;
     }
-    select{
+    select#handlebars-regno{
         color: black;
         border: none;
         padding: 10px;
         border-radius: 10px;
-        background-color: rgb(206, 184, 158);
+        background-color: rgb(253, 236, 217);
     }
     .bottom-container {
         display: flex;
@@ -330,7 +332,7 @@
         margin: 15px 0;
     }
     /* filtered plates */
-    .filter-plate-inner-box{
+    .handlebars-filter-plate-inner-box{
         display: flex;
         flex-wrap: wrap;
         font-size: 15px;
@@ -349,33 +351,29 @@
         background-color: rgb(175, 175, 175);
         border: .2px solid black;
     }
-    .registration{
+    .handlebars-registration{
         width: 500px;
     }
 /* filtered wrapper */
-    .filter-bottom-wrapper{
+    .handlebars-filter-bottom-wrapper{
         margin: .1px 0;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 600px;
         min-height: 100px;
         cursor: pointer;
-        text-align: center;
-        border-top: 1px solid rgb(186, 186, 186);
-        border-bottom: 1px solid rgb(186, 186, 186);
-        background-color: rgba(192, 144, 104, 0.932);
+        background-color: rgb(236, 211, 164);
         padding: 5px;
     } 
        /*display on upper left corner  */
-    .error-handling-wrapper{
+    .handlebars-error-handling-wrapper{
+        border-radius: 10px;
         position: fixed;
         padding: 5px 8px;
         top: 0;
         right: 0;
         margin-top: 100px;
-        background-color: rgb(206, 184, 158);
+        background-color: rgb(247, 210, 167);
     }
 
     .fail{
@@ -395,6 +393,7 @@
         border: 1px solid black;
         border-radius: 5px;
         padding: 5px 15px;
+        width: 110px;
         background-color: rgb(216, 156, 2);
     }
     /* fitltered list */
@@ -425,10 +424,13 @@
         flex-direction: column;
         align-items: flex-end;
     }
-    .limit{
+    .handle-total{
+        color: rgb(212, 212, 212);
+    }
+    .handle-limit{
         font-size: 13px;
         font-weight: bold;
-        color: grey;
+        color: rgb(212, 212, 212);
     }
 
 }

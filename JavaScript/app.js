@@ -1,5 +1,5 @@
 // getting function
-import RegistrationNumbers from './main.js'
+import RegistrationNumbers from '../Factory Function/main.js'
 const regNumbers = RegistrationNumbers()
 // getting and init document object elements
 const towns = document.querySelector('select')
@@ -112,7 +112,7 @@ const selectTown = () => {
     townName.innerHTML = displayName
     // filter towns
     regNumbers.setByTown(town, numbers)
-    console.log(counter.innerHTML = regNumbers.getTownReg().length)
+    counter.innerHTML = regNumbers.getTownReg().length
     regNumbers.getTownReg().length == 0 ? filteredNumberPlate.innerHTML = `There is no registration numbers for ${displayName}` :
         storedRegis(filteredNumberPlate, regNumbers.getTownReg())
     // set time out for error handlers

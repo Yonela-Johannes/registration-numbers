@@ -1,0 +1,27 @@
+const data = {
+    registration: {
+        header: "Registration(Handlebars)",
+        title: "Registration",
+        placeholder: "Enter registration no",
+        townTitle:  'Registration Numbers',
+        addBtn: 'Add',
+        clearBtn: 'Clear',
+        total: "Total Registrations: ",
+        limit: "limit: 10"
+        
+    },
+    towns: {
+        capetown: "Cape Town",
+        stellenbosch: "Stellenbosh",
+        bellville: "Bellville",
+        kuilsriver: "Kuils River",
+        wellington: "Wellington",
+        malmesbury: "Malmesbury",
+        worcester: "Worcester",
+        ceres: "Ceres",
+        george: "George",
+        refresh: "Display All"
+    }
+}
+
+export { data }
