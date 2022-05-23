@@ -3,12 +3,12 @@ const data = {
         header: "Registration(Handlebars)",
         title: "Registration",
         placeholder: "Enter registration no",
-        townTitle:  'Registration Numbers',
+        townTitle: 'Registration Numbers',
         addBtn: 'Add',
         clearBtn: 'Clear',
         total: "Total Registrations: ",
-        limit: "limit: 10"
-        
+        limit: "limit: 20"
+
     },
     towns: {
         capetown: "Cape Town",
