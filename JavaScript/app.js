@@ -1,5 +1,5 @@
 // getting function
-import RegistrationNumbers from './main.js'
+import RegistrationNumbers from '../Factory Function/main.js'
 const regNumbers = RegistrationNumbers()
 // getting and init document object elements
 const towns = document.querySelector('select')

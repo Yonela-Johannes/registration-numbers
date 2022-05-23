@@ -7,7 +7,7 @@ const data = {
         addBtn: 'Add',
         clearBtn: 'Clear',
         total: "Total Registrations: ",
-        limit: "limit: 20"
+        limit: "limit: 10"
         
     },
     towns: {

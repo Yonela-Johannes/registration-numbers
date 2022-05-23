@@ -204,7 +204,11 @@
         padding: 0 10px;
     }
 @media screen and (min-width: 752px){
-
+    .main-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
     .header {
         font-size: 30px;
         font-family: 'Orbitron', sans-serif;
@@ -225,68 +229,66 @@
         justify-content: center;
         min-height: calc(100vh - 80px);
     }
-    .handlebars-wrapper{
+    .wrapper{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        border: 1px solid rgb(0, 0, 0);
+        border: 1px solid rgb(93, 93, 93);
         border-radius: 15px;
-        background-color: rgb(98, 98, 98);
     }
-    .handlebars-wrapper h1{
+    .wrapper h1{
         font-size: 20px;
         letter-spacing: 5px;
         font-family: 'Orbitron', sans-serif;
     }
 
-    .handlebars-title{
-        color: white;
-        margin: 0 1px;
+    .title{
+        margin: 0 15px;
     }
-    .handlebars-box{
+    .box{
         display: flex;
         flex-direction: row;
         margin: 30px 0;
-        border-radius: 20px;
+        border-radius: 15px;
         justify-content: center;
         align-items: center;
-        width: 170px;
-        background-color: rgb(236, 211, 164);
+        width: 200px;
+        background-color: rgb(206, 184, 158);
     }
     .bottom-box{
         display: flex;
         flex-direction: row;
         margin: 10x 0;
     }
-    .handlebars-head{
-        background: rgb(254, 225, 182);
+    .head{
+        background: rgb(228, 228, 228);
         width: 100%;
         border-radius: 15px 10px 0 0;
+        padding: 5px;
     }
     h1{
         color: gray;
         padding: 5px;
     }
-    h1.handlebars-header-title{
-        color: rgb(87, 87, 87);
-        margin: 10px;
+    h1.header-title{
+        color: gray;
+        margin-top: 10px;
+        padding: 5px;
+        border-bottom: 2px solid rgb(176, 176, 176);  
     }
     h4{
         margin: 10px 0;
     }
-    input.handlebars-reg-input::placeholder{
-        color: rgb(96, 96, 96);
-        font-weight: bold;
-    }
-    input.handlebars-reg-input{
+
+    input{
         color: black;
         border-radius: 15px;
-        border: 1px solid rgb(36, 36, 36);
+        border: 1px solid gray;
         padding: 7px;
         margin-right: 15px;
-        background-color: transparent;
+        background-color:rgb(255, 255, 255);
     }
      .button{
         padding: 5px 10px;
@@ -311,18 +313,18 @@
         border-color: black;
        background-color: rgb(216, 156, 2);
     }
-    .handlebars-bottom-box{
+    .bottom-box{
         display: flex;
         align-items: center;
-        border: .2px solid rgb(205, 203, 203);
+        border: .2px solid rgb(151, 151, 151);
         border-radius: 10px;
     }
-    select#handlebars-regno{
+    select{
         color: black;
         border: none;
         padding: 10px;
         border-radius: 10px;
-        background-color: rgb(253, 236, 217);
+        background-color: rgb(206, 184, 158);
     }
     .bottom-container {
         display: flex;
@@ -355,7 +357,7 @@
         width: 500px;
     }
 /* filtered wrapper */
-    .handlebars-filter-bottom-wrapper{
+    .filter-bottom-wrapper{
         margin: .1px 0;
         display: flex;
         flex-direction: column;
@@ -363,11 +365,15 @@
         justify-content: center;
         min-height: 100px;
         cursor: pointer;
-        background-color: rgb(236, 211, 164);
+        text-align: center;
+        border-top: 1px solid rgb(186, 186, 186);
+        border-bottom: 1px solid rgb(186, 186, 186);
+        background-color: rgba(192, 144, 104, 0.932);
         padding: 5px;
     } 
        /*display on upper left corner  */
     .error-handling-wrapper{
+        border-radius: 10px;
         position: fixed;
         padding: 5px 8px;
         top: 0;
@@ -423,13 +429,10 @@
         flex-direction: column;
         align-items: flex-end;
     }
-    .handle-total{
-        color: rgb(212, 212, 212);
-    }
-    .handle-limit{
+    .limit{
         font-size: 13px;
         font-weight: bold;
-        color: rgb(212, 212, 212);
+        color: grey;
     }
 
 }

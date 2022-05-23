@@ -1,6 +1,11 @@
 const registrationTemplate = `
+    <!-- main handlebars container -->
             <div class="container">
+                <div class="handlebars-error-handling-wrapper hide">
+                    <div class="handlebars-error-handling "></div>
+                </div>            
                 {{#data}}
+                    <!-- Main Container Wrapper -->
                     <div class="handlebars-wrapper">
                         <div class="handlebars-head">
                             <h1 class="handlebars-header-title">
@@ -14,7 +19,7 @@ const registrationTemplate = `
                             <input class="handlebars-reg-input" placeholder="{{this.registration.placeholder}}" type="text" name="text" />
                         </div>
                         <div class="buttons">
-                            <div class="button add-number">{{this.registration.addBtn}}</div>
+                            <div class="button handlebars-add-number">{{this.registration.addBtn}}</div>
                         </div>
                     </div>
                 <!-- town list selection -->
@@ -40,20 +45,20 @@ const registrationTemplate = `
                 <div class="bottom-container">
                     <h1 class="town-name">{{this.registration.townTitle}}</h1>
                     <div class="handlebars-filter-bottom-wrapper">
-                        <div class="registration">
-                            <div class="number-plate">
-                                <span class="filter-plate-inner-box">
+                        <div class="handlebars-registration">
+                            <div class="handlebars-number-plate">
+                                <span class="handlebars-filter-plate-inner-box">
                                 </span>
                             </div>
                         </div>
                     </div>
                     <div class="bottom-wrapper">
-                        <h1 class="town-name display-name"></h1>
+                        <h1 class="town-name handlebars-display-name"></h1>
                         <div class="buttons reset-button">
-                            <div class="button reset-numbers">{{this.registration.clearBtn}}</div>
+                            <div class="button handlebars-reset-numbers">{{this.registration.clearBtn}}</div>
                         </div>
                         <div class="footer">
-                            <span class="handle-total">{{this.registration.total}}<span class="counter"></span></span>
+                            <span class="handle-total">{{this.registration.total}}<span class="handlebars-counter"></span></span>
                             <span class="handle-limit">{{this.registration.limit}}</span>
                         </div>
                     </div>
