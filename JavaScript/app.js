@@ -130,7 +130,7 @@ towns.addEventListener('change', selectTown)
 const clearRegNumbers = () => {
     !!regNumbers.getNumbers() && (errorHandlerWrapper.classList.remove("hide")),
         errorHandler.classList.add('fail'),
-        regNumbers.getNumbers().length == 0 ? errorHandler.innerHTML = 'Registration numbers are already cleared' : localStorage.clear('regNumbers')
+        regNumbers.getNumbers().length == 0 ? errorHandler.innerHTML = 'Registration numbers are already cleared' : localStorage.removeItem('regNumbers')
     setTimeout(() => {
         errorHandler.innerHTML = '',
             errorHandlerWrapper.classList.add("hide")

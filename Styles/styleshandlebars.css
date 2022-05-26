@@ -3,7 +3,7 @@
     box-sizing: border-box;
     font-family: 'Montserrat Alternates', sans-serif;
 }
-.header {
+.handlebars-header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -19,37 +19,37 @@
     place-self: start;
 }
 
-.header span{
+.handlebars-header span{
     border: 1px solid white;
     font-weight: bold;
 }
-.header span.reg{
-    background-color: rgb(255, 200, 0);
+.handlebars-header span.reg{
+    background-color: rgb(231, 220, 180);
     border-radius: 15px 0 0;
     padding: 5px;
     margin: 0;
 }
-.header span.app{
+.handlebars-header span.app{
     color:white;
     background-color: rgb(96, 96, 96);
     border-radius: 0 0 15px 0;
     padding: 5px;
     margin: 0;
 }
-.container{
+.handlebars-container{
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: calc(100vh - 80px);
 }
-.input-container{
+.handlebars-wnput-container{
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
-.wrapper{
+.handlebars-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,12 +58,12 @@
     border: 1px solid rgb(93, 93, 93);
     border-radius: 0;
 }
-.wrapper h1{
+.handlebars-wrapper h1{
     font-size: 20px;
     letter-spacing: 5px;
     font-family: 'Orbitron', sans-serif;
 }
-.box{
+.handlebars-box{
     display: flex;
     flex-direction: column;
     margin: 20px 0;
@@ -72,12 +72,12 @@
     align-items: center;
     background-color: rgb(228, 199, 145);
 }
-.bottom-box{
+.hanldebars-bottom-box{
     display: flex;
     flex-direction: column;
     margin: 10x 0;
 }
-    .head{
+    .handlebars-head{
         background: rgb(228, 228, 228);
         width: 100%;
         border-radius: 0;
@@ -87,7 +87,7 @@
         color: gray;
         padding: 5px;
     }
-    h1.header-title{
+    h1.handlebars-header-title{
         font-size: 22px;
         color: gray;
         margin-top: 10px;
@@ -133,7 +133,7 @@
         border-radius: 10px;
          background-color: rgb(231, 204, 114);
     }
-    .bottom-container {
+    .handlebars-bottom-container {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -141,7 +141,7 @@
         margin: 15px 0;
     }
     /* filtered plates */
-    .filter-plate-inner-box{
+    .handlebarsfilter-plate-inner-box{
         display: flex;
         flex-wrap: wrap;
         font-size: 15px;
@@ -200,12 +200,12 @@
         text-align: center;
         text-justify: auto;
     }
-    .number-plate{
+    .handlebrars-number-plate{
         padding: 0 10px;
     }
 @media screen and (min-width: 752px){
 
-    .header {
+    .handlebarsHeader {
         font-size: 30px;
         font-family: 'Orbitron', sans-serif;
         background-color: rgb(62, 62, 61);
@@ -217,7 +217,7 @@
         justify-content: flex-start;
         place-self: start;
     }
-    .container{
+    .handlebarsContainer{
         position: relative;
         display: flex;
         flex-direction: column;
@@ -255,12 +255,12 @@
         width: 170px;
         background-color: rgb(236, 211, 164);
     }
-    .bottom-box{
+    .handlebars-bottom-box{
         display: flex;
         flex-direction: row;
         margin: 10x 0;
     }
-    .handlebars-head{
+    .handlebars-handlebars-{
         background: rgb(254, 225, 182);
         width: 100%;
         border-radius: 15px 10px 0 0;
@@ -362,13 +362,14 @@
         justify-content: center;
         min-height: 100px;
         cursor: pointer;
-        background-color: rgb(236, 211, 164);
+        background-color: rgb(240, 185, 83);
         padding: 5px;
     } 
        /*display on upper left corner  */
     .handlebars-error-handling-wrapper{
         border-radius: 10px;
         position: fixed;
+        margin-right: 200px;
         padding: 5px 8px;
         top: 0;
         right: 0;
