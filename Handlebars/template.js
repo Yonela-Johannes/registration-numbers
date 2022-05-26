@@ -1,6 +1,6 @@
 const registrationTemplate = `
     <!-- main handlebars container -->
-            <div class="container">
+            <div class="handlebars-container">
                 <div class="handlebars-error-handling-wrapper hide">
                     <div class="handlebars-error-handling "></div>
                 </div>            
